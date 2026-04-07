@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #faf8f5;
+  color: #1a1a1a;
+  font-family: "Inter", "Montserrat", sans-serif;
+  line-height: 1.6;
+}
+
+.banner-marquee {
+  display: flex;
+  width: max-content;
+  min-width: 100%;
+  animation: banner-marquee-scroll 5s linear infinite;
+}
+
+.banner-marquee__content {
+  display: inline-flex;
+  align-items: center;
+  padding-right: 3rem;
+}
+
+@keyframes banner-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d9a03c;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c9872b;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white;
+  }
+}
