@@ -20,9 +20,9 @@ export default function Contact() {
   });
 
   const groupMeLink = "https://groupme.com/join_group/101906028/7iDBhrT9";
-  const emailJsServiceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-  const emailJsTemplateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-  const emailJsPublicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+  const emailJsServiceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID?.trim();
+  const emailJsTemplateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID?.trim();
+  const emailJsPublicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY?.trim();
 
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
