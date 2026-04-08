@@ -23,7 +23,7 @@ export default function VideoSection() {
         loop
         playsInline
       >
-        <source src="/videos/dji_fly_20260315_095732_0006_1773569395317_video_beautify.MP4" type="video/mp4" />
+        <source src="https://res.cloudinary.com/dwbvzcrjo/video/upload/4447edaf-1fed-450a-a6db-a355d78a5049_569a8a14-9eb6-4a79-93d0-81ff1aa85666_memphis_jxntum.mp4" type="video/mp4" />
       </video>
 
       {/* Dark Overlay for depth */}

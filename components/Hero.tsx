@@ -16,7 +16,7 @@ export default function Hero() {
         loop
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
-        src="/videos/memphis.webm"
+        src="https://res.cloudinary.com/dwbvzcrjo/video/upload/4447edaf-1fed-450a-a6db-a355d78a5049_569a8a14-9eb6-4a79-93d0-81ff1aa85666_memphis_jxntum.mp4"
       />
 
       {/* Dark overlay so text stays legible */}
