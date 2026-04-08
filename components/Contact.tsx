@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useForm } from "react-hook-form";
@@ -30,17 +31,17 @@ export default function Contact() {
     setSubmitError("");
 
     try {
-      const response = await fetch("/api/connect", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        const payload = await response.json().catch(() => null);
-        const message = payload?.error ?? "Failed to submit form";
-        throw new Error(message);
-      }
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          from_name: data.name,
+          from_email: data.email,
+          phone: data.phone,
+          family_updates: data.familyUpdates ?? "",
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
 
       setSubmitted(true);
       reset();
