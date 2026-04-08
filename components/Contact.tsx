@@ -20,6 +20,9 @@ export default function Contact() {
   });
 
   const groupMeLink = "https://groupme.com/join_group/101906028/7iDBhrT9";
+  const emailJsServiceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+  const emailJsTemplateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+  const emailJsPublicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -31,25 +34,41 @@ export default function Contact() {
     setSubmitError("");
 
     try {
+      if (!emailJsServiceId || !emailJsTemplateId || !emailJsPublicKey) {
+        throw new Error("Email service is not configured correctly. Please contact the reunion team.");
+      }
+
       await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        emailJsServiceId,
+        emailJsTemplateId,
         {
           from_name: data.name,
           from_email: data.email,
           phone: data.phone,
           family_updates: data.familyUpdates ?? "",
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        emailJsPublicKey
       );
 
       setSubmitted(true);
       reset();
       setTimeout(() => setSubmitted(false), 5000);
     } catch (error) {
-      const message = error instanceof Error
-        ? error.message
-        : "We could not send your info right now. Please try again.";
+      let message = "We could not send your info right now. Please try again.";
+
+      if (error instanceof Error && error.message) {
+        message = error.message;
+      } else if (error && typeof error === "object") {
+        const maybeError = error as { text?: string; status?: number; message?: string };
+        if (maybeError.message) {
+          message = maybeError.message;
+        } else if (maybeError.text && maybeError.status) {
+          message = `Email service error (${maybeError.status}): ${maybeError.text}`;
+        } else if (maybeError.text) {
+          message = maybeError.text;
+        }
+      }
+
       setSubmitError(message);
     } finally {
       setSubmitting(false);
