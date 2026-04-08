@@ -7,6 +7,8 @@ import Image from "next/image";
 import TimelineCard from "./TimelineCard";
 
 export default function OurPattern() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
   // Section 1: Header & Introduction
   const { ref: headerRef, inView: headerInView } = useInView({
     threshold: 0.3,
@@ -131,7 +133,8 @@ export default function OurPattern() {
       {/* SECTION 1: Header & Introduction */}
       <section
         ref={headerRef}
-        className="py-24 px-4 sm:px-6 lg:px-8 bg-[url('/images/marvell.jpg')] bg-cover bg-center bg-no-repeat relative"
+        className="py-24 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-no-repeat relative"
+        style={{ backgroundImage: `url('${basePath}/images/marvell.jpg')` }}
       >
         <div className="absolute inset-0 bg-yellow-100/85" />
         <div className="max-w-4xl mx-auto relative z-10">
@@ -178,7 +181,10 @@ export default function OurPattern() {
       </section>
 
       {/* DIVIDER LINE */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-[url('/images/marvell.jpg')] bg-cover bg-center bg-no-repeat relative">
+      <section
+        className="py-8 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-no-repeat relative"
+        style={{ backgroundImage: `url('${basePath}/images/marvell.jpg')` }}
+      >
         <div className="absolute inset-0 bg-yellow-100/85" />
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="h-px bg-gold/50" />
@@ -292,7 +298,8 @@ export default function OurPattern() {
       {/* SECTION 3: Mapping the Descendants */}
       <section
         ref={descendantsRef}
-        className="py-24 px-4 sm:px-6 lg:px-8 bg-[url('/images/marvell.jpg')] bg-cover bg-center bg-no-repeat relative"
+        className="py-24 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-no-repeat relative"
+        style={{ backgroundImage: `url('${basePath}/images/marvell.jpg')` }}
       >
         <div className="absolute inset-0 bg-yellow-100/85" />
         <div className="max-w-6xl mx-auto relative z-10">
@@ -319,7 +326,7 @@ export default function OurPattern() {
                 transition={{ duration: 0.3 }}
               >
                 <Image
-                  src="/images/map.png"
+                  src={`${basePath}/images/map.png`}
                   alt="Heritage Map: Descendants' Journey"
                   width={900}
                   height={600}

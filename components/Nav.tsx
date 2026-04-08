@@ -18,13 +18,15 @@ const navLinks = [
 ];
 
 export default function Nav() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-gold-300/20 bg-charcoal/60 backdrop-blur-md">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-6">
         <Link href="/" className="flex items-center gap-3">
           <div className="relative w-14 h-14 sm:w-16 sm:h-16">
             <Image
-              src="/images/sunny-side-logo.png"
+              src={`${basePath}/images/sunny-side-logo.png`}
               alt="The Sunny-Side Hoskins Family Reunion Logo"
               fill
               className="object-contain"
