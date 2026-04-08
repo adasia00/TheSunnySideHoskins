@@ -131,9 +131,10 @@ export default function OurPattern() {
       {/* SECTION 1: Header & Introduction */}
       <section
         ref={headerRef}
-        className="py-24 px-4 sm:px-6 lg:px-8 bg-yellow-100 relative"
+        className="py-24 px-4 sm:px-6 lg:px-8 bg-[url('/images/marvell.jpg')] bg-cover bg-center bg-no-repeat relative"
       >
-        <div className="max-w-4xl mx-auto">
+        <div className="absolute inset-0 bg-yellow-100/85" />
+        <div className="max-w-4xl mx-auto relative z-10">
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -177,8 +178,9 @@ export default function OurPattern() {
       </section>
 
       {/* DIVIDER LINE */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-yellow-100 relative">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-[url('/images/marvell.jpg')] bg-cover bg-center bg-no-repeat relative">
+        <div className="absolute inset-0 bg-yellow-100/85" />
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="h-px bg-gold/50" />
         </div>
       </section>
@@ -290,9 +292,10 @@ export default function OurPattern() {
       {/* SECTION 3: Mapping the Descendants */}
       <section
         ref={descendantsRef}
-        className="py-24 px-4 sm:px-6 lg:px-8 bg-yellow-100 relative"
+        className="py-24 px-4 sm:px-6 lg:px-8 bg-[url('/images/marvell.jpg')] bg-cover bg-center bg-no-repeat relative"
       >
-        <div className="max-w-6xl mx-auto">
+        <div className="absolute inset-0 bg-yellow-100/85" />
+        <div className="max-w-6xl mx-auto relative z-10">
           <motion.div
             variants={containerVariants}
             initial="hidden"
