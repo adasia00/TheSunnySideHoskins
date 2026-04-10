@@ -127,18 +127,9 @@ export default function TravelPage() {
 
           {/* Airport Information */}
           <div className="mt-10 bg-white rounded-2xl shadow-lg p-8 sm:p-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div className="rounded-lg overflow-hidden">
-                <img
-                  src="/images/travel-scene-airplane.jpg"
-                  alt="Travel illustration with airplane"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
+            <div className="grid grid-cols-1 gap-8 items-center">
               <div>
                 <h3 className="font-serif text-2xl font-bold text-charcoal mb-2">Memphis International Airport</h3>
-                <p className="font-serif text-xl text-gold-500 mb-4">Airport Code: MEM</p>
                 <ul className="space-y-2 text-gray-600 text-base mb-6">
                   <li>Address: 2491 Winchester Rd, Memphis, TN 38116</li>
                   <li>Approximate drive to the host hotel: 20-25 minutes</li>
