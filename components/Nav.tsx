@@ -18,7 +18,6 @@ const navLinks = [
 ];
 
 export default function Nav() {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -35,7 +34,7 @@ export default function Nav() {
         <Link href="/" className="flex items-center gap-3">
           <div className="relative w-14 h-14 sm:w-16 sm:h-16">
             <Image
-              src={`${basePath}/images/sunny-side-logo.png`}
+              src="/images/sunny-side-logo.png"
               alt="The Sunny-Side Hoskins Family Reunion Logo"
               fill
               className="object-contain"

@@ -1,8 +1,6 @@
 import Footer from "@/components/Footer";
 
 export default function TravelPage() {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
   return (
     <main className="pt-16">
       <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 bg-cream relative overflow-hidden">
@@ -13,7 +11,7 @@ export default function TravelPage() {
           {/* Memphis Skyline Image */}
           <div className="mb-10 rounded-lg overflow-hidden shadow-lg">
             <img
-              src={`${basePath}/images/memphis-city-skyline-golden-silhouette-vector.jpg`}
+              src="/images/memphis-city-skyline-golden-silhouette-vector.jpg"
               alt="Memphis City Skyline"
               className="w-full h-auto"
             />
@@ -30,7 +28,7 @@ export default function TravelPage() {
               {/* Hotel Image */}
               <div className="rounded-lg overflow-hidden">
                 <img
-                  src={`${basePath}/images/a-room-with-a-view.jpg`}
+                  src="/images/a-room-with-a-view.jpg"
                   alt="Hyatt Place Memphis Room"
                   className="w-full h-full object-cover"
                 />
@@ -132,7 +130,7 @@ export default function TravelPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div className="rounded-lg overflow-hidden">
                 <img
-                  src={`${basePath}/images/travel-scene-airplane.jpg`}
+                  src="/images/travel-scene-airplane.jpg"
                   alt="Travel illustration with airplane"
                   className="w-full h-full object-cover"
                 />

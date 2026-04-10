@@ -7,7 +7,6 @@ import OurPattern from "./OurPattern";
 
 export default function TheReason() {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -29,7 +28,7 @@ export default function TheReason() {
         ref={ref}
         className="min-h-screen pt-28 pb-44 sm:pt-36 sm:pb-56 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-cover"
         style={{
-          backgroundImage: `url('${basePath}/images/image_7128.jpg')`,
+          backgroundImage: "url('/images/image_7128.jpg')",
           backgroundPosition: "center 65%",
         }}
       >

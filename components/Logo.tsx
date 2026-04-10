@@ -7,8 +7,6 @@ interface LogoProps {
 }
 
 export default function Logo({ className = "w-12 h-12" }: LogoProps) {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
   return (
     <svg
       viewBox="0 0 500 200"
@@ -32,7 +30,7 @@ export default function Logo({ className = "w-12 h-12" }: LogoProps) {
         y="10"
         width="280"
         height="140"
-        href={`${basePath}/images/business-handshake-transparent.png`}
+        href="/images/business-handshake-transparent.png"
         filter="url(#white-handshake)"
         style={{ display: "block", margin: "0 auto" }}
       />
