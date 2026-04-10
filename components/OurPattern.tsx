@@ -51,16 +51,16 @@ export default function OurPattern() {
       title: "Birth of Dwidell 'Sunny' Hoskins Jr",
       location: "Marvell, Arkansas",
       side: "left",
-      biography: "Born in Marvell, Arkansas in 1936. Dwidell and Pearline moved from Arkansas to Michigan in 1954, beginning a journey that would shape the family's legacy. A man of strong integrity and faith, he instilled these values in all his children and shared his passion for music throughout his life.",
+      biography: "Born in Marvell, Arkansas in 1936. Dwidell moved from Arkansas to Michigan in 1954, beginning a journey that would shape the family's legacy. A man of strong integrity and faith, he instilled these values in all his children and shared his passion for music throughout his life.",
       isMemorial: false,
     },
     {
       year: "1954",
-      name: "Pearline & Migration",
-      title: "Dwidell and Pearline Move",
+      name: "Michigan Migration",
+      title: "Dwidell Moves to Michigan",
       location: "Arkansas to Michigan",
       side: "right",
-      biography: "1954 marked a pivotal year in the Hoskins family history. Dwidell and Pearline made the courageous decision to move from Arkansas to Michigan, seeking new opportunities and a fresh start. This decision would define the family's geographic and cultural trajectory for generations to come.",
+      biography: "1954 marked a pivotal year in the Hoskins family history. Dwidell made the courageous decision to move from Arkansas to Michigan, seeking new opportunities and a fresh start. This decision would define the family's geographic and cultural trajectory for generations to come.",
       isMemorial: false,
     },
     {
@@ -74,11 +74,11 @@ export default function OurPattern() {
     },
     {
       year: "1956",
-      name: "Mary Halen Johnson",
-      title: "Second child, Mary Halen Johnson, born",
+      name: "Mary Helen Johnson",
+      title: "Second child, Mary Helen Johnson, born",
       location: "Grand Rapids, Michigan",
       side: "right",
-      biography: "Born in Grand Rapids, Michigan in 1956. Mary Halen is a Ferris State '78 graduate and a dedicated spiritual leader. She serves as Co-Pastor of Divine Grace Ministries in Grand Blanc, Michigan, continuing her father's legacy of faith and service to the community with grace and purpose.",
+      biography: "Born in Grand Rapids, Michigan in 1956. Mary Helen is a Ferris State '78 graduate and a dedicated spiritual leader. She serves as Co-Pastor of Divine Grace Ministries in Grand Blanc, Michigan, continuing her father's legacy of faith and service to the community with grace and purpose.",
       isMemorial: false,
     },
     {
@@ -221,10 +221,16 @@ export default function OurPattern() {
                 transition={{ duration: 2, ease: "easeInOut" }}
               />
 
-              {/* Road Center Dash */}
+              {/* Road Center Lane Markings */}
               <motion.div
-                className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-gold/0 via-gold to-gold/0 rounded-full"
-                style={{ top: 0, bottom: 0 }}
+                className="absolute left-1/2 transform -translate-x-1/2 w-1.5 rounded-full"
+                style={{
+                  top: 0,
+                  bottom: 0,
+                  marginLeft: "7px",
+                  backgroundImage:
+                    "repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0px, rgba(255, 255, 255, 0.95) 18px, transparent 18px, transparent 38px)",
+                }}
                 initial={{ scaleY: 0, originY: 0 }}
                 animate={timelineInView ? { scaleY: 1 } : { scaleY: 0 }}
                 transition={{ duration: 2, ease: "easeInOut", delay: 0.15 }}
@@ -270,10 +276,16 @@ export default function OurPattern() {
                       />
                     </div>
 
-                    {/* Timeline Dot */}
-                    <div className="w-2/12 flex justify-center">
+                    {/* Timeline Car Marker */}
+                    <div
+                      className={`w-2/12 flex ${
+                        item.side === "left" ? "justify-start" : "justify-end"
+                      }`}
+                    >
                       <motion.div
-                        className="w-7 h-7 rounded-full bg-black border-2 border-gold shadow-lg z-20 relative"
+                        className={`z-20 relative text-black ${
+                          item.side === "right" ? "scale-x-[-1]" : ""
+                        }`}
                         initial={{ scale: 0 }}
                         animate={timelineInView ? { scale: 1 } : { scale: 0 }}
                         transition={{
@@ -281,7 +293,32 @@ export default function OurPattern() {
                           delay: index * 0.1 + 0.3,
                         }}
                       >
-                        <span className="absolute inset-0 m-auto w-2 h-2 rounded-full bg-gold" />
+                        <svg
+                          viewBox="0 0 64 32"
+                          className="w-12 h-12 drop-shadow-md"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M12 20L17 11C17.7 9.7 19.1 9 20.6 9H41C44 9 46.7 10.7 48 13.4L50 17H55C57.8 17 60 19.2 60 22V24C60 25.1 59.1 26 58 26H55C55 22.7 52.3 20 49 20C45.7 20 43 22.7 43 26H21C21 22.7 18.3 20 15 20C11.7 20 9 22.7 9 26H6C4.9 26 4 25.1 4 24V22C4 20.9 4.9 20 6 20H12Z"
+                            fill="currentColor"
+                          />
+                          <path
+                            d="M21 12H31V17H18L21 12Z"
+                            fill="white"
+                            fillOpacity="0.9"
+                          />
+                          <path
+                            d="M33 12H40.5C42.4 12 44.1 13.1 44.9 14.8L45.9 17H33V12Z"
+                            fill="white"
+                            fillOpacity="0.9"
+                          />
+                          <circle cx="15" cy="26" r="5" fill="#D9A03C" />
+                          <circle cx="49" cy="26" r="5" fill="#D9A03C" />
+                          <circle cx="15" cy="26" r="2.5" fill="#1A1A1A" />
+                          <circle cx="49" cy="26" r="2.5" fill="#1A1A1A" />
+                        </svg>
                       </motion.div>
                     </div>
 

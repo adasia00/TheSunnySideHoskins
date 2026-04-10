@@ -9,11 +9,11 @@ const navLinks = [
   { label: "The Reason", href: "/the-reason" },
   { label: "Travel", href: "/travel" },
   { label: "Payments", href: "/payments" },
+  { label: "Itinerary", href: "/itinerary" },
   {
     label: "Family Tree",
     href: "https://docs.google.com/spreadsheets/d/1zjpaDJG4jJCBjAl3XtU9I1laCvMeyaVszIFRaqJeof0/edit?usp=sharing",
   },
-  { label: "Itinerary", href: "/itinerary" },
   { label: "Connect", href: "/connect" },
 ];
 
