@@ -52,6 +52,27 @@ export default function PaymentSchedule() {
     },
     {
       step: "03",
+      label: "Bowling Payment",
+      dueDate: "May 13th, 2026",
+      installmentAmount: "$18 / $14 (55+)",
+      notes: "Bowling at 901 Bowl on Friday, June 12th (7:30–9:30 PM). $18/person or $14/person for adults 55+. Shoes included. Due by May 13th — we are paying in advance at a discounted rate to reserve our lanes.",
+    },
+    {
+      step: "04",
+      label: "Saturday Eating & Activities",
+      dueDate: "TBD",
+      installmentAmount: "TBD",
+      notes: "Costs covering Saturday meals and activities. Details and pricing to be announced.",
+    },
+    {
+      step: "05",
+      label: "Banquet Costs",
+      dueDate: "TBD",
+      installmentAmount: "TBD",
+      notes: "Costs for the Legacy Banquet on Saturday evening. Details and pricing to be announced.",
+    },
+    {
+      step: "06",
       label: "Final Payment",
       dueDate: "TBA",
       installmentAmount: "Remaining balance",
@@ -97,14 +118,14 @@ export default function PaymentSchedule() {
                 Timeline and payment breakdown for reunion contributions
               </p>
               <div className="inline-block bg-gold-50/10 border border-gold-300/30 px-5 py-2 rounded-full text-gold-100 text-sm tracking-wide uppercase">
-                3 Steps • Deposit, Hotel Reservation, Final Balance
+                6 Steps • Deposit, Hotel, Bowling, Saturday, Banquet, Final Balance
               </div>
             </motion.div>
 
             {/* Visual Timeline */}
             <motion.div variants={itemVariants} className="mb-10">
               <h3 className="font-serif text-2xl font-bold text-white mb-8">Payment Timeline</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
                 {paymentTimeline.map((milestone, index) => (
                   <div key={milestone.step} className="relative">
                     <div className="bg-charcoal/40 border border-gold-300/30 rounded-2xl p-5 h-full">

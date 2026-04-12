@@ -10,47 +10,6 @@ export default function Amenities() {
     triggerOnce: true,
   });
 
-  const amenitiesData = [
-    {
-      category: "Heritage & Memory",
-      items: [
-        { icon: "📖", name: "Storytelling Corners", desc: "Family voices and oral history moments" },
-        { icon: "🖼️", name: "Ancestor Photo Gallery", desc: "Legacy portraits and memory walls" },
-        { icon: "🎙️", name: "Family Interview Booth", desc: "Record stories for future generations" },
-        { icon: "🌳", name: "Legacy Reflection Garden", desc: "Quiet remembrance and gratitude spaces" },
-      ],
-    },
-    {
-      category: "Weekend Essentials",
-      items: [
-        { icon: "👕", name: "Reunion Attire Guidance", desc: "Color themes and banquet dress notes" },
-        { icon: "📸", name: "Family Photo Sessions", desc: "Group portraits and candid capture times" },
-        { icon: "🍽️", name: "Picnic & Banquet Details", desc: "Dining schedule and event logistics" },
-        { icon: "🧡", name: "Youth & Elders Moments", desc: "Intergenerational connection activities" },
-      ],
-    },
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
   return (
     <section
       id="itinerary"
@@ -116,54 +75,42 @@ export default function Amenities() {
           transition={{ duration: 0.8, delay: 0.15 }}
           className="mb-8 text-center"
         >
-          <h3 className="font-serif text-3xl text-charcoal mb-2">What to look forward to</h3>
+          <h3 className="font-serif text-3xl text-charcoal mb-2">Full Itinerary</h3>
           <div className="h-1 w-20 bg-gradient-gold rounded mx-auto" />
         </motion.div>
 
-        {/* Amenities Grid */}
+        {/* Full Itinerary PDF */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="bg-white rounded-2xl shadow-lg p-4 sm:p-6"
         >
-          {amenitiesData.map((category, categoryIdx) => (
-            <motion.div
-              key={categoryIdx}
-              variants={itemVariants}
-              className="space-y-4"
+          <div className="mb-4 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="/docs/full-itinerary.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-md bg-gold-500 px-4 py-2 text-sm font-semibold text-white hover:bg-gold-600 transition-colors"
             >
-              {/* Category Header */}
-              <div className="pb-4 border-b-2 border-gold-300">
-                <h3 className="font-serif text-xl font-bold text-charcoal">
-                  {category.category}
-                </h3>
-              </div>
+              Open Full Itinerary
+            </a>
+            <a
+              href="/docs/full-itinerary.pdf"
+              download
+              className="inline-flex items-center rounded-md border border-gold-500 px-4 py-2 text-sm font-semibold text-gold-700 hover:bg-gold-50 transition-colors"
+            >
+              Download PDF
+            </a>
+          </div>
 
-              {/* Items */}
-              <div className="space-y-3">
-                {category.items.map((item, itemIdx) => (
-                  <motion.div
-                    key={itemIdx}
-                    whileHover={{ x: 5 }}
-                    className="p-3 rounded-lg bg-white bg-opacity-40 hover:bg-opacity-60 transition-all duration-300 cursor-pointer"
-                  >
-                    <div className="flex items-start gap-3">
-                      <span className="text-2xl flex-shrink-0 mt-1">
-                        {item.icon}
-                      </span>
-                      <div>
-                        <p className="font-semibold text-charcoal text-sm">
-                          {item.name}
-                        </p>
-                        <p className="text-gray-600 text-xs mt-1">{item.desc}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+          <div className="h-[70vh] min-h-[500px] overflow-hidden rounded-xl border border-gold-200">
+            <iframe
+              src="/docs/full-itinerary.pdf#view=FitH"
+              title="Sunny Side Hoskins Full Itinerary PDF"
+              className="h-full w-full"
+            />
+          </div>
         </motion.div>
       </div>
     </section>
