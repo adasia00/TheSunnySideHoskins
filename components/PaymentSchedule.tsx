@@ -6,7 +6,8 @@ import { useInView } from "react-intersection-observer";
 
 export default function PaymentSchedule() {
   const { ref, inView } = useInView({
-    threshold: 0.3,
+    // Large sections can fail to meet high intersection ratios on small screens.
+    threshold: 0.08,
     triggerOnce: true,
   });
 
